@@ -4,7 +4,9 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path=="/items"
+    #get '/items/Figs'
+
+    if req.path.starts_with? "/items"
       resp.write "You requested the songs"
     else
       resp.write "Route not found"
