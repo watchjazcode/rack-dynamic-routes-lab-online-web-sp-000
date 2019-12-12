@@ -5,8 +5,11 @@ class Application
     req = Rack::Request.new(env)
 
     #get '/items/Figs'
+    #get '/items/Apples'
 
     if req.path.start_with? "/items"
+      item = req.path.split("/").last
+      @@items.detect { |i| i.name == item }
       resp.write "You requested the songs"
     else
       resp.write "Route not found"
