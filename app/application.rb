@@ -9,7 +9,7 @@ class Application
 
     if req.path.start_with? "/items"
       item = req.path.split("/").last
-      @@items.detect { |i| i.name == item }
+      chosen_item = @@items.detect { |i| i.name == item }
       resp.write "You requested the songs"
     else
       resp.write "Route not found"
