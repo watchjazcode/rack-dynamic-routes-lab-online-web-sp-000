@@ -6,7 +6,7 @@ class Application
 
     #get '/items/Figs'
 
-    if req.path.starts_with? "/items"
+    if req.path.start_with? "/items"
       resp.write "You requested the songs"
     else
       resp.write "Route not found"
