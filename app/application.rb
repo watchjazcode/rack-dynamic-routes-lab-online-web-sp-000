@@ -10,7 +10,11 @@ class Application
     if req.path.start_with? "/items"
       item = req.path.split("/").last
       chosen_item = @@items.detect { |i| i.name == item }
-      resp.write "You requested the songs"
+      if chosen_item.nil?
+        resp.write "Item not found"
+        resp.status = 400
+      else
+        resp.write "#{chosen_item.price}"
     else
       resp.write "Route not found"
       resp.status = 404
